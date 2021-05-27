@@ -9,7 +9,6 @@ project "GLFW"
 	-- Compiler --
 	kind "StaticLib"
 	language "C"
-	staticruntime "on"
 
 	-- Project Files ---
 	files
@@ -23,6 +22,8 @@ project "GLFW"
 		"src/monitor.c",
 		"src/vulkan.c",
 		"src/window.c",
+
+		"premake5.lua"
 	}
 	
 	-- Dependencies --
