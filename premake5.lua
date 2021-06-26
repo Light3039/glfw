@@ -53,6 +53,38 @@ project "GLFW"
 			"_GLFW_WIN32",
 			"_CRT_SECURE_NO_WARNINGS",
 		}
+		
+	-- linux
+	filter "system:linux"
+		files
+		{
+			"src/x11_init.c", 
+			"src/x11_window.c",
+			"src/x11_monitor.c",
+			"src/linux_joystick.c",
+			"src/egl_context.c",
+			"src/osmesa_context.c",
+			"src/posix_thread.c",
+			"src/posix_time.c",
+			"src/glx_context.c",
+			"src/xkb_unicode.c",
+		}
+		
+		links
+		{
+			"dl",
+		}
+		
+		buildoptions
+		{
+			"-lgtest",
+			"-lpthread",
+		}
+		
+		defines
+		{
+			"_GLFW_X11",
+		}
 
 	-- debug
 	filter "configurations:Debug"
