@@ -23,7 +23,7 @@ project "GLFW"
 		"src/vulkan.c",
 		"src/window.c",
 
-		"premake5.lua"
+		"build.lua"
 	}
 	
 	-- Dependencies --
@@ -53,6 +53,8 @@ project "GLFW"
 			"_GLFW_WIN32",
 			"_CRT_SECURE_NO_WARNINGS",
 		}
+
+		flags { "MultiProcessorCompile" }
 		
 	-- linux
 	filter "system:linux"
