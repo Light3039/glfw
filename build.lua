@@ -3,8 +3,8 @@ project "GLFW"
 	location "%{wks.location}/Dependencies/GLFW"
 
 	-- Output Directories --
-	targetdir ("%{wks.location}/bin/"     .. outputdir)
-	objdir    ("%{wks.location}/bin-int/" .. outputdir)
+	targetdir (target_dir)
+	objdir    (object_dir)
 
 	-- Compiler --
 	kind "StaticLib"
@@ -13,8 +13,11 @@ project "GLFW"
 	-- Project Files ---
 	files
 	{
+		-- includes
 		"include/GLFW/glfw3.h",
 		"include/GLFW/glfw3native.h",
+
+		-- source
 		"src/glfw_config.h",
 		"src/context.c",
 		"src/init.c",
@@ -23,12 +26,9 @@ project "GLFW"
 		"src/vulkan.c",
 		"src/window.c",
 
-		"build.lua"
+		"%{prj.location}/build.lua",
 	}
 	
-	-- Dependencies --
-	  --   NILL   --
-
 	--- Filters ---
 	-- windows
 	filter "system:windows"
@@ -101,4 +101,4 @@ project "GLFW"
 	-- distribution
 	filter "configurations:Distribution"
 		runtime "Release"
-		optimize "on"
+		optimize "full"
